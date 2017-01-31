@@ -24,7 +24,12 @@ public WebElement getlgntxt()
 {
 	return logintext;
 }
-
+@FindBy(id="user_email")
+private WebElement usernametxtbx;
+public WebElement usernametxtbx()
+{
+	return usernametxtbx;
+}
 
 
 }

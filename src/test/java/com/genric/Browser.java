@@ -15,18 +15,19 @@ public class Browser
 {
 	
 	public static WebDriver driver;
+	
 	@BeforeMethod
 	public static WebDriver getbrowser() throws Throwable
 	{
-		if(Datareading.getconfigdata("C:\\liqvidautomation\\framework\\Data.properties","BROWSER").equals("firefox"))
+		if(Datareading.getconfigdata(System.getProperty("user.dir")+"\\Data.properties","BROWSER").equals("firefox"))
 		{
 			System.setProperty("webdriver.gecko.driver",System.getProperty("user.dir")+"\\resources\\geckodriver.exe");
 			System.out.println("Firefox Browser is set");
 			driver = new FirefoxDriver();
 		}
-		else if(Datareading.getconfigdata("C:\\liqvidautomation\\framework\\Data.properties","BROWSER").equals("chrome"))
+		else if(Datareading.getconfigdata(System.getProperty("user.dir")+"\\Data.properties","BROWSER").equals("chrome"))
 		{
-			System.setProperty("webdriver.chrome.driver","C:\\liqvidautomation\\framework\\resource\\chromedriver.exe");
+			System.setProperty("webdriver.chrome.driver",System.getProperty("user.dir")+"\\resource\\chromedriver.exe");
 			driver=new ChromeDriver();
 		}
 		
@@ -37,7 +38,8 @@ public class Browser
 	public void loadurl() throws Throwable
 	{
 		Datareading d=new Datareading();
-		String url=d.getconfigdata("C:\\liqvidautomation\\framework\\Data.properties", "URL");
+		String url=d.getconfigdata(System.getProperty("user.dir")+"\\Data.properties", "URL");
+		System.out.println(url);
 		driver.get(url);
 	
 		driver.manage().timeouts().implicitlyWait(20,TimeUnit.SECONDS);
