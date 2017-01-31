@@ -9,33 +9,22 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.gargoylesoftware.htmlunit.javascript.host.media.webkitAudioContext;
 
-public class po 
+public class LoginPage_verify 
 {
 	WebDriver driver=null;
-	public po(WebDriver driver)
+	public LoginPage_verify(WebDriver driver)
 	{
 		this.driver=driver;
 		PageFactory.initElements(driver,this);
 	}
 
-@FindBy(id="Email")
-private WebElement usrnmtxtbx;
-
-@FindBy(id="ne")
-private WebElement nxtbtn;
-@FindBy(id="Passwd")
-private WebElement pswbx;
-@FindBy(id="signIn")
-private WebElement sgnbtn;
-
-public void gmaillgn(String username,String password)
+@FindBy(xpath="//a[contains(text(),'Log In')]")
+private WebElement logintext;
+public WebElement getlgntxt()
 {
-	usrnmtxtbx.sendKeys(username);
-	nxtbtn.click();
-	pswbx.sendKeys(password);
-	sgnbtn.click();
-	
-	
+	return logintext;
 }
+
+
 
 }

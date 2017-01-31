@@ -7,9 +7,9 @@ import org.testng.annotations.Test;
 
 import com.genric.Browser;
 import com.genric.Datareading;
-import com.objectrepo.po;
+import com.objectrepo.LoginPage_verify;
 
-//@Listeners(com.genric.samplelisnr.class)
+@Listeners(com.genric.samplelisnr.class)
 public class script1 extends Browser
 {
 	@Test
@@ -17,10 +17,10 @@ public class script1 extends Browser
 	{
 		 Datareading d=new  Datareading ();
 	     loadurl();
-	     po p=new po(driver);
+	     LoginPage_verify p=new LoginPage_verify(driver);
 	     String usn=d.getconfigdata("C:\\liqvidautomation\\framework\\Data.properties", "USERNAME");
 	     String pswd=d.getconfigdata("C:\\liqvidautomation\\framework\\Data.properties", "PASSWORD");
-	     p.gmaillgn(usn,pswd);
+	     p.getlgntxt().click();
 	     
 	}
 
